@@ -1,6 +1,7 @@
 ﻿using GOF_Lab2.Creational.AbstractFactoryExample;
 using GOF_Lab2.Creational.BuilderExample;
 using GOF_Lab2.Creational.FactoryExample;
+using GOF_Lab2.Creational.PrototypeExample;
 using GOF_Lab2.Creational.SingletoneExample;
 
 namespace GOF_Lab2.Creational
@@ -49,6 +50,34 @@ namespace GOF_Lab2.Creational
             cook.MakeBurger(veggieBuilder);
             Burger veggieBurger = veggieBuilder.GetBurger();
             veggieBurger.Show();
+
+            System.Console.WriteLine(" ");
+            System.Console.WriteLine("--------------------------Prototype Example--------------------------");
+            System.Console.WriteLine(" ");
+            Circle circle = new Circle
+            {
+                X = 10,
+                Y = 20,
+                Color = "Red",
+                Radius = 15
+            };
+
+            Circle clonedCircle = (Circle)circle.Clone();
+
+            Rectangle rectangle = new Rectangle
+            {
+                X = 5,
+                Y = 5,
+                Color = "Blue",
+                Width = 30,
+                Height = 40
+            };
+
+            Rectangle clonedRectangle = (Rectangle)rectangle.Clone();
+            circle.Show();
+            clonedCircle.Show();
+            rectangle.Show();
+            clonedRectangle.Show();
         }
     }
 }
