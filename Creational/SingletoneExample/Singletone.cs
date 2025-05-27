@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GOF_Lab2.Creational
+namespace GOF_Lab2.Creational.SingletoneExample
 {
     public class Singletone
     {
@@ -22,7 +22,7 @@ namespace GOF_Lab2.Creational
 
         public void catMeow()
         {
-            System.Console.WriteLine("MEOW");
+            Console.WriteLine("MEOW");
         }
     }
 }
