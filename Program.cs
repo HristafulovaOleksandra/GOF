@@ -1,4 +1,5 @@
 ﻿using GOF_Lab2.Creational.AbstractFactoryExample;
+using GOF_Lab2.Creational.BuilderExample;
 using GOF_Lab2.Creational.FactoryExample;
 using GOF_Lab2.Creational.SingletoneExample;
 
@@ -9,12 +10,12 @@ namespace GOF_Lab2.Creational
         static void Main(string[] args)
         {
             Singletone singletone =Singletone.getInstance();
-            System.Console.WriteLine("Singletone Example");
+            System.Console.WriteLine("--------------------------Singletone Example--------------------------");
             System.Console.WriteLine(" ");
             singletone.catMeow();
 
             System.Console.WriteLine(" ");
-            System.Console.WriteLine("Factory Example");
+            System.Console.WriteLine("--------------------------Factory Example--------------------------");
             System.Console.WriteLine(" ");
             FactoryFood factoryFood=new FactoryFood();
             Food food1 = factoryFood.getFood("burger");
@@ -23,7 +24,7 @@ namespace GOF_Lab2.Creational
             System.Console.WriteLine("Food's type is: " + food2.checkFood());
 
             System.Console.WriteLine(" ");
-            System.Console.WriteLine("Abstract Factory Example");
+            System.Console.WriteLine("--------------------------Abstract Factory Example--------------------------");
             System.Console.WriteLine(" ");
             IFurnitureFactory factory = new ModernFurnitureFactory();
             IChair chair = factory.CreateChair();
@@ -35,6 +36,19 @@ namespace GOF_Lab2.Creational
             table = factory.CreateTable();
             chair.SitOn();
             table.PutOn();
+
+            System.Console.WriteLine(" ");
+            System.Console.WriteLine("--------------------------Builder Example--------------------------");
+            System.Console.WriteLine(" ");
+            var cook = new Cook();
+            var classicBuilder = new ClassicBurgerBuilder();
+            cook.MakeBurger(classicBuilder);
+            Burger classicBurger = classicBuilder.GetBurger();
+            classicBurger.Show();
+            var veggieBuilder = new VeggieBurgerBuilder();
+            cook.MakeBurger(veggieBuilder);
+            Burger veggieBurger = veggieBuilder.GetBurger();
+            veggieBurger.Show();
         }
     }
 }
