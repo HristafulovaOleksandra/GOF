@@ -1,4 +1,5 @@
-﻿using GOF_Lab2.Creational.FactoryExample;
+﻿using GOF_Lab2.Creational.AbstractFactoryExample;
+using GOF_Lab2.Creational.FactoryExample;
 using GOF_Lab2.Creational.SingletoneExample;
 
 namespace GOF_Lab2.Creational
@@ -9,13 +10,31 @@ namespace GOF_Lab2.Creational
         {
             Singletone singletone =Singletone.getInstance();
             System.Console.WriteLine("Singletone Example");
+            System.Console.WriteLine(" ");
             singletone.catMeow();
 
+            System.Console.WriteLine(" ");
+            System.Console.WriteLine("Factory Example");
+            System.Console.WriteLine(" ");
             FactoryFood factoryFood=new FactoryFood();
             Food food1 = factoryFood.getFood("burger");
             System.Console.WriteLine("Food's type is: " + food1.checkFood());
             Food food2 = factoryFood.getFood("cookie");
             System.Console.WriteLine("Food's type is: " + food2.checkFood());
+
+            System.Console.WriteLine(" ");
+            System.Console.WriteLine("Abstract Factory Example");
+            System.Console.WriteLine(" ");
+            IFurnitureFactory factory = new ModernFurnitureFactory();
+            IChair chair = factory.CreateChair();
+            ITable table = factory.CreateTable();
+            chair.SitOn();
+            table.PutOn();
+            factory = new VictorianFurnitureFactory();
+            chair = factory.CreateChair();
+            table = factory.CreateTable();
+            chair.SitOn();
+            table.PutOn();
         }
     }
 }
