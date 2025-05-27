@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace GOF_Lab2.Creational
+{ 
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Singletone singletone =Singletone.getInstance();
+            singletone.catMeow();
+        }
+    }
+}
