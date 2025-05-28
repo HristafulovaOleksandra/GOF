@@ -1,6 +1,7 @@
 ﻿using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
 using GOF.Structural.ComponentExample;
+using GOF.Structural.DecoratorExample;
 using GOF.Structural.FacadeExample;
 using GOF.Structural.FlyweightExample;
 using GOF.Structural.ProxyExample;
@@ -170,6 +171,14 @@ namespace GOF_Lab2.Creational
 
                             regularEmail.Send("Hello!");
                             urgentSMS.Send("Call me ASAP!");
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Decorator Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            IClothing outfit = new TShirt();
+                            outfit = new ScarfDecorator(outfit);
+                            outfit = new JacketDecorator(outfit);
+                            outfit.Wear();
                             break;
                         }
                     case 3://BEHAVIORAL
