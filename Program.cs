@@ -1,5 +1,6 @@
 ﻿using GOF.Structural.AdapterExample;
 using GOF.Structural.ComponentExample;
+using GOF.Structural.ProxyExample;
 using GOF_Lab2.Creational.AbstractFactoryExample;
 using GOF_Lab2.Creational.BuilderExample;
 using GOF_Lab2.Creational.FactoryExample;
@@ -122,6 +123,16 @@ namespace GOF_Lab2.Creational
                             mainMenu.Add(lunchMenu);
                             mainMenu.Add(coffee);
                             mainMenu.Display();
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Proxy Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            IVideo video = new ProxyVideo("filmAboutPatterns.mp4");
+                            Console.WriteLine("First Play():");
+                            video.Play(); //make RealVideo
+
+                            Console.WriteLine("\nSecond Play():");
+                            video.Play(); //don't make again
                             break;
                         }
                     case 3://BEHAVIORAL
