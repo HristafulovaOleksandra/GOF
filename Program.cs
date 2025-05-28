@@ -1,5 +1,6 @@
 ﻿using GOF.Behavioral.CommandExample;
 using GOF.Behavioral.CoRExample;
+using GOF.Behavioral.IteratorExample;
 using GOF.Behavioral.MediatorExample;
 using GOF.Behavioral.ObserverExample;
 using GOF.Behavioral.StateExample;
@@ -309,6 +310,24 @@ namespace GOF_Lab2.Creational
                             {
                                 exhibit.Accept(restorer);
                             }
+                            
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Iterator Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            Library library = new Library();
+                            library.AddBook(new Book("1984"));
+                            library.AddBook(new Book("Brave New World"));
+                            library.AddBook(new Book("The Catcher in the Rye"));
+
+                            IBookIterator iterator = library.CreateIterator();
+
+                            Console.WriteLine("Book in the library:");
+                            while (iterator.HasNext())
+                            {
+                                Book book = iterator.Next();
+                                Console.WriteLine("- " + book.Title);
+                            }
+
                             break;
                         }
                     default://EXIT
