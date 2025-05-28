@@ -2,6 +2,7 @@
 using GOF.Behavioral.CoRExample;
 using GOF.Behavioral.IteratorExample;
 using GOF.Behavioral.MediatorExample;
+using GOF.Behavioral.MementoExample;
 using GOF.Behavioral.ObserverExample;
 using GOF.Behavioral.StateExample;
 using GOF.Behavioral.StrategyExample;
@@ -328,6 +329,23 @@ namespace GOF_Lab2.Creational
                                 Console.WriteLine("- " + book.Title);
                             }
 
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Memento Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            TextEditor editor = new TextEditor();
+                            EditorHistory history = new EditorHistory();
+
+                            editor.Write("Hello, world!");
+                            history.Save(editor.Save());//save state
+
+                            editor.Write("I love C#!");
+                            history.Save(editor.Save());//save one more state
+
+                            editor.Write("One more line...");
+
+                            // Undo
+                            editor.Restore(history.Undo()); // return to "I love C#!"
+                            editor.Restore(history.Undo()); // return to "Hello, world!"
                             break;
                         }
                     default://EXIT
