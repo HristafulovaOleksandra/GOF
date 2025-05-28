@@ -1,4 +1,5 @@
-﻿using GOF.Behavioral.TemplateMethodExample;
+﻿using GOF.Behavioral.MediatorExample;
+using GOF.Behavioral.TemplateMethodExample;
 using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
 using GOF.Structural.ComponentExample;
@@ -194,6 +195,17 @@ namespace GOF_Lab2.Creational
                             Beverage coffee = new Coffee();
                             Console.WriteLine("Making coffee...");
                             coffee.PrepareRecipe();
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Mediator Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            IChatRoomMediator chatRoom = new ChatRoom();
+
+                            User user1 = new User("Sasha", chatRoom);
+                            User user2 = new User("Oleksandr", chatRoom);
+
+                            user1.Send("Hello, Oleksandr!");
+                            user2.Send("Hi, Sasha! How are you?");
                             break;
                         }
                     default://EXIT
