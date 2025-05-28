@@ -1,5 +1,6 @@
 ﻿using GOF.Behavioral.CoRExample;
 using GOF.Behavioral.MediatorExample;
+using GOF.Behavioral.ObserverExample;
 using GOF.Behavioral.TemplateMethodExample;
 using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
@@ -224,6 +225,23 @@ namespace GOF_Lab2.Creational
                             {
                                 low.HandleRequest(request);
                             }
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Observer Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            WeatherStation station = new WeatherStation();
+
+                            IObserver phone = new PhoneDisplay();
+                            IObserver window = new WindowDisplay();
+
+                            station.RegisterObserver(phone);
+                            station.RegisterObserver(window);
+
+                            station.SetTemperature(22.5f);
+                            station.SetTemperature(25.0f);
+
+                            station.RemoveObserver(window);
+                            station.SetTemperature(20.0f);
                             break;
                         }
                     default://EXIT
