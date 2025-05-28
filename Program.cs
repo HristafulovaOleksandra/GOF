@@ -2,6 +2,7 @@
 using GOF.Behavioral.CoRExample;
 using GOF.Behavioral.MediatorExample;
 using GOF.Behavioral.ObserverExample;
+using GOF.Behavioral.StateExample;
 using GOF.Behavioral.StrategyExample;
 using GOF.Behavioral.TemplateMethodExample;
 using GOF.Structural.AdapterExample;
@@ -272,6 +273,17 @@ namespace GOF_Lab2.Creational
 
                             remote.SetCommand(lightOff);
                             remote.PressButton();
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------State Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            Door door = new Door(new ClosedState());
+
+                            door.Open();
+                            door.Lock();
+                            door.Close();
+                            door.Lock();
+                            door.Open();
                             break;
                         }
                     default://EXIT
