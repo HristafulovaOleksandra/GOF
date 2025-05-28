@@ -1,5 +1,6 @@
 ﻿using GOF.Structural.AdapterExample;
 using GOF.Structural.ComponentExample;
+using GOF.Structural.FacadeExample;
 using GOF.Structural.FlyweightExample;
 using GOF.Structural.ProxyExample;
 using GOF_Lab2.Creational.AbstractFactoryExample;
@@ -145,6 +146,18 @@ namespace GOF_Lab2.Creational
                             {
                                 tree.Draw();
                             }
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Facade Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            TV tv = new TV();
+                            AudioSystem audio = new AudioSystem();
+                            Lights lights = new Lights();
+                            DVDPlayer dvd = new DVDPlayer();
+
+                            HomeTheaterFacade homeTheater = new HomeTheaterFacade(tv, audio, lights, dvd);
+                            homeTheater.WatchMovie();
+
                             break;
                         }
                     case 3://BEHAVIORAL
