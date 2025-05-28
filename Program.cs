@@ -5,6 +5,7 @@ using GOF.Behavioral.ObserverExample;
 using GOF.Behavioral.StateExample;
 using GOF.Behavioral.StrategyExample;
 using GOF.Behavioral.TemplateMethodExample;
+using GOF.Behavioral.VisitorExample;
 using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
 using GOF.Structural.ComponentExample;
@@ -284,6 +285,30 @@ namespace GOF_Lab2.Creational
                             door.Close();
                             door.Lock();
                             door.Open();
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Visitor Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            List<IExhibit> exhibits = new List<IExhibit>
+                            {
+                                new Painting("Starry night"),
+                                new Sculpture("marble")
+                            };
+
+                            IVisitor tourist = new Tourist();
+                            IVisitor restorer = new Restorer();
+
+                            Console.WriteLine("== Tourist is in the museum ==");
+                            foreach (var exhibit in exhibits)
+                            {
+                                exhibit.Accept(tourist);
+                            }
+
+                            Console.WriteLine("\n== Restorer is in the museum ==");
+                            foreach (var exhibit in exhibits)
+                            {
+                                exhibit.Accept(restorer);
+                            }
                             break;
                         }
                     default://EXIT
