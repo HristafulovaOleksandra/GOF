@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GOF_Lab2.Creational.FactoryExample
 {
-    public abstract class Food
+    public interface Food
     {
         public abstract string checkFood();
     }

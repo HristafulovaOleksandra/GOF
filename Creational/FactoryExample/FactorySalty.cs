@@ -8,7 +8,7 @@ namespace GOF_Lab2.Creational.FactoryExample
 {
     public class FactorySalty : Food
     {
-        public override string checkFood()
+        public string checkFood()
         {
             return "Salty";
         }
