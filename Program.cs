@@ -1,5 +1,6 @@
 ﻿using GOF.Structural.AdapterExample;
 using GOF.Structural.ComponentExample;
+using GOF.Structural.FlyweightExample;
 using GOF.Structural.ProxyExample;
 using GOF_Lab2.Creational.AbstractFactoryExample;
 using GOF_Lab2.Creational.BuilderExample;
@@ -130,9 +131,20 @@ namespace GOF_Lab2.Creational
                             IVideo video = new ProxyVideo("filmAboutPatterns.mp4");
                             Console.WriteLine("First Play():");
                             video.Play(); //make RealVideo
-
                             Console.WriteLine("\nSecond Play():");
                             video.Play(); //don't make again
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Lightweight Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            List<Tree> forest = new List<Tree>();
+                            forest.Add(new Tree(10, 20, TreeFactory.GetTreeType("AppleTree", "Green")));
+                            forest.Add(new Tree(15, 25, TreeFactory.GetTreeType("AppleTree", "Green")));
+                            forest.Add(new Tree(50, 80, TreeFactory.GetTreeType("PineTree", "Dark-Green")));
+                            foreach (var tree in forest)
+                            {
+                                tree.Draw();
+                            }
                             break;
                         }
                     case 3://BEHAVIORAL
