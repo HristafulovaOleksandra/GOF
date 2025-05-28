@@ -12,7 +12,7 @@ namespace GOF_Lab2.Creational.PrototypeExample
 
         public Circle() { }
 
-        public Circle(Circle source) : base(source)
+        public Circle(Circle source) : base(source) // it first calls the copy constructor of its base class
         {
             Radius = source.Radius;
         }

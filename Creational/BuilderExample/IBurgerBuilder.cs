@@ -12,6 +12,6 @@ namespace GOF_Lab2.Creational.BuilderExample
         void AddPatty();
         void AddSauce();
         void AddVegetables();
-        Burger GetBurger();
+        Burger GetBurger();//result
     }
 }
