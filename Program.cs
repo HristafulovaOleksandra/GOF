@@ -1,6 +1,7 @@
 ﻿using GOF.Behavioral.CoRExample;
 using GOF.Behavioral.MediatorExample;
 using GOF.Behavioral.ObserverExample;
+using GOF.Behavioral.StrategyExample;
 using GOF.Behavioral.TemplateMethodExample;
 using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
@@ -242,6 +243,18 @@ namespace GOF_Lab2.Creational
 
                             station.RemoveObserver(window);
                             station.SetTemperature(20.0f);
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Strategy Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            Order order = new Order(new CashPayment());
+                            order.Checkout(300);
+
+                            order.SetPaymentStrategy(new CreditCardPayment());
+                            order.Checkout(500); 
+
+                            order.SetPaymentStrategy(new PayPalPayment());
+                            order.Checkout(750);
                             break;
                         }
                     default://EXIT
