@@ -8,7 +8,7 @@ namespace GOF_Lab2.Creational.FactoryExample
 {
     public class FactoryFood
     {
-        public Food getFood(string type)
+        public IFood getFood(string type)
         {
             if ("burger".Equals(type))
                 return new FactorySalty();

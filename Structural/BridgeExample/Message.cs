@@ -8,7 +8,7 @@ namespace GOF.Structural.BridgeExample
 {
     public abstract class Message
     {
-        protected IMessageSender sender;
+        protected IMessageSender sender; //bridge
 
         public Message(IMessageSender sender)
         {

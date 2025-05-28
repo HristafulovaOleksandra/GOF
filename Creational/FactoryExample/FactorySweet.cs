@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GOF_Lab2.Creational.FactoryExample
 {
-    public class FactorySweet : Food
+    public class FactorySweet : IFood
     {
         public string checkFood()
         {

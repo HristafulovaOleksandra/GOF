@@ -1,4 +1,5 @@
-﻿using GOF.Structural.AdapterExample;
+﻿using GOF.Behavioral.TemplateMethodExample;
+using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
 using GOF.Structural.ComponentExample;
 using GOF.Structural.DecoratorExample;
@@ -41,10 +42,10 @@ namespace GOF_Lab2.Creational
                             System.Console.WriteLine("--------------------------Factory Example--------------------------");
                             System.Console.WriteLine(" ");
                             FactoryFood factoryFood = new FactoryFood();
-                            Food food1 = factoryFood.getFood("burger");
-                            System.Console.WriteLine("Food's type is: " + food1.checkFood());
-                            Food food2 = factoryFood.getFood("cookie");
-                            System.Console.WriteLine("Food's type is: " + food2.checkFood());
+                            IFood food1 = factoryFood.getFood("burger");
+                            System.Console.WriteLine("IFood's type is: " + food1.checkFood());
+                            IFood food2 = factoryFood.getFood("cookie");
+                            System.Console.WriteLine("IFood's type is: " + food2.checkFood());
 
                             System.Console.WriteLine(" ");
                             System.Console.WriteLine("--------------------------Abstract Factory Example--------------------------");
@@ -183,6 +184,16 @@ namespace GOF_Lab2.Creational
                         }
                     case 3://BEHAVIORAL
                         {
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Template Method Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            Beverage tea = new Tea();
+                            Console.WriteLine("Making tea...");
+                            tea.PrepareRecipe();
+                            Console.WriteLine();
+                            Beverage coffee = new Coffee();
+                            Console.WriteLine("Making coffee...");
+                            coffee.PrepareRecipe();
                             break;
                         }
                     default://EXIT
