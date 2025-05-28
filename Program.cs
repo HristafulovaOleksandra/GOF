@@ -1,4 +1,5 @@
-﻿using GOF.Behavioral.CoRExample;
+﻿using GOF.Behavioral.CommandExample;
+using GOF.Behavioral.CoRExample;
 using GOF.Behavioral.MediatorExample;
 using GOF.Behavioral.ObserverExample;
 using GOF.Behavioral.StrategyExample;
@@ -255,6 +256,22 @@ namespace GOF_Lab2.Creational
 
                             order.SetPaymentStrategy(new PayPalPayment());
                             order.Checkout(750);
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Command Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            Light light = new Light();
+
+                            ICommand lightOn = new TurnOnCommand(light);
+                            ICommand lightOff = new TurnOffCommand(light);
+
+                            RemoteControl remote = new RemoteControl();
+
+                            remote.SetCommand(lightOn);
+                            remote.PressButton();
+
+                            remote.SetCommand(lightOff);
+                            remote.PressButton();
                             break;
                         }
                     default://EXIT
