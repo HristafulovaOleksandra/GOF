@@ -1,4 +1,5 @@
 ﻿using GOF.Structural.AdapterExample;
+using GOF.Structural.ComponentExample;
 using GOF_Lab2.Creational.AbstractFactoryExample;
 using GOF_Lab2.Creational.BuilderExample;
 using GOF_Lab2.Creational.FactoryExample;
@@ -102,10 +103,25 @@ namespace GOF_Lab2.Creational
                             System.Console.WriteLine(" ");
                             System.Console.WriteLine("--------------------------Adapter Example--------------------------");
                             System.Console.WriteLine(" ");
-
                             EuropeanPlug europeanPlug = new EuropeanPlug();
                             IAmericanSocket socket = new SocketAdapter(europeanPlug);
                             socket.PlugInAmerican();
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Composit Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            MenuItem burger = new MenuItem("Burger");
+                            MenuItem salad = new MenuItem("Salad");
+                            MenuItem coffee = new MenuItem("Coffee");
+
+                            Menu lunchMenu = new Menu("Lunch");
+                            lunchMenu.Add(burger);
+                            lunchMenu.Add(salad);
+
+                            Menu mainMenu = new Menu("Main menu");
+                            mainMenu.Add(lunchMenu);
+                            mainMenu.Add(coffee);
+                            mainMenu.Display();
                             break;
                         }
                     case 3://BEHAVIORAL
