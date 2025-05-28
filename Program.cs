@@ -1,4 +1,5 @@
-﻿using GOF.Behavioral.MediatorExample;
+﻿using GOF.Behavioral.CoRExample;
+using GOF.Behavioral.MediatorExample;
 using GOF.Behavioral.TemplateMethodExample;
 using GOF.Structural.AdapterExample;
 using GOF.Structural.BridgeExample;
@@ -206,6 +207,23 @@ namespace GOF_Lab2.Creational
 
                             user1.Send("Hello, Oleksandr!");
                             user2.Send("Hi, Sasha! How are you?");
+
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Chain of Responsobility Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            Handler low = new LowLevelHandler();
+                            Handler medium = new MediumLevelHandler();
+                            Handler high = new HighLevelHandler();
+
+                            low.SetNext(medium);
+                            medium.SetNext(high);
+
+                            int[] requests = { 1, 2, 3, 4 };
+
+                            foreach (var request in requests)
+                            {
+                                low.HandleRequest(request);
+                            }
                             break;
                         }
                     default://EXIT
