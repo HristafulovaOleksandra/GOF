@@ -1,4 +1,5 @@
 ﻿using GOF.Structural.AdapterExample;
+using GOF.Structural.BridgeExample;
 using GOF.Structural.ComponentExample;
 using GOF.Structural.FacadeExample;
 using GOF.Structural.FlyweightExample;
@@ -158,6 +159,17 @@ namespace GOF_Lab2.Creational
                             HomeTheaterFacade homeTheater = new HomeTheaterFacade(tv, audio, lights, dvd);
                             homeTheater.WatchMovie();
 
+                            System.Console.WriteLine(" ");
+                            System.Console.WriteLine("--------------------------Bridge Example--------------------------");
+                            System.Console.WriteLine(" ");
+                            IMessageSender email = new EmailSender();
+                            IMessageSender sms = new SMSSender();
+
+                            Message regularEmail = new RegularMessage(email);
+                            Message urgentSMS = new UrgentMessage(sms);
+
+                            regularEmail.Send("Hello!");
+                            urgentSMS.Send("Call me ASAP!");
                             break;
                         }
                     case 3://BEHAVIORAL
